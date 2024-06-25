@@ -1,41 +1,24 @@
 import * as vscode from 'vscode';
+import { checkAchievements, loadAchievements } from './achievement';
 
+export function activate(context: vscode.ExtensionContext) 
+{
+    console.log('Votre extension "my-vscode-extension" est maintenant active!');
 
-let points = 0;
-let statusBar: vscode.StatusBarItem;
+    loadAchievements(context);
 
-export function activate(context: vscode.ExtensionContext) {
-  statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-  statusBar.text = `Points: ${points}`;
-  statusBar.show();
-  
-  context.subscriptions.push(statusBar);
+    vscode.workspace.onDidChangeTextDocument(event => 
+    {
+        const linesWritten = event.document.lineCount;
+        checkAchievements(linesWritten, context);
+    });
 
-  context.subscriptions.push(vscode.commands.registerCommand('extension.compileCode', compileCode));
-  context.subscriptions.push(vscode.commands.registerCommand('extension.commitCode', commitCode));
-  context.subscriptions.push(vscode.commands.registerCommand('extension.createFunction', createFunction));
-}
+    let disposable = vscode.commands.registerCommand('extension.helloWorld', () => 
+    {
+        vscode.window.showInformationMessage('Hello World from your VSCode Extension!');
+    });
 
-function compileCode() {
-  points += 10;
-  updateStatusBar();
-  vscode.window.showInformationMessage(`Code compiled! Total points: ${points}`);
-}
-
-function commitCode() {
-  points += 5;
-  updateStatusBar();
-  vscode.window.showInformationMessage(`Code committed! Total points: ${points}`);
-}
-
-function createFunction() {
-  points += 1;
-  updateStatusBar();
-  vscode.window.showInformationMessage(`Function created! Total points: ${points}`);
-}
-
-function updateStatusBar() {
-  statusBar.text = `Points: ${points}`;
+    context.subscriptions.push(disposable);
 }
 
 export function deactivate() {}
