@@ -16,18 +16,18 @@
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-    {
+      {
         "command": "extension.helloWorld",
         "title": "Hello World"
-    },
-    {
+      },
+      {
         "command": "extension.showAchievements",
         "title": "Show Achievements"
-    },
-    {
+      },
+      {
         "command": "extension.resetAchievements",
         "title": "Reset Achievements and Experience"
-    }
+      }
     ]
   },
   "scripts": {
@@ -56,5 +56,8 @@
     "eslint": "^8.57.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
   }
 }
