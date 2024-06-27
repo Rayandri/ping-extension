@@ -16,10 +16,18 @@
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "ping-gamefi.helloWorld",
+    {
+        "command": "extension.helloWorld",
         "title": "Hello World"
-      }
+    },
+    {
+        "command": "extension.showAchievements",
+        "title": "Show Achievements"
+    },
+    {
+        "command": "extension.resetAchievements",
+        "title": "Reset Achievements and Experience"
+    }
     ]
   },
   "scripts": {
