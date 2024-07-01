@@ -1,11 +1,19 @@
 import * as vscode from 'vscode';
-import { checkAchievements, loadAchievements, initStatusBarItem, showAchievements, resetAchievements } from './achievement';
+import { checkAchievements, loadAchievements, initStatusBarItem, showAchievements, resetAchievements, startSession } from './achievement';
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) 
+{
     console.log('Votre extension "my-vscode-extension" est maintenant active!');
+
+    const isFirstTime = context.globalState.get('isFirstTime', true);
+    if (isFirstTime) {
+        vscode.window.showInformationMessage('Bienvenue à bord !');
+        context.globalState.update('isFirstTime', false);
+    }
 
     initStatusBarItem(context);
     loadAchievements(context);
+    startSession(context);
 
     vscode.workspace.onDidChangeTextDocument(event => {
         const linesWritten = event.document.lineCount;
@@ -54,4 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(resetAchievementsCommand);
 }
 
-export function deactivate() {}
+export function deactivate(context: vscode.ExtensionContext) 
+{
+    
+}
