@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { checkAchievements, loadAchievements, initStatusBarItem, showAchievements, resetAchievements, startSession } from './achievement';
+import { checkAchievements, loadAchievements, initStatusBarItem, showAchievements, resetAchievements, startSession, checkExtensionAchievements } from './achievement';
 
 export function activate(context: vscode.ExtensionContext) 
 {
@@ -18,6 +18,7 @@ export function activate(context: vscode.ExtensionContext)
     vscode.workspace.onDidChangeTextDocument(event => {
         const linesWritten = event.document.lineCount;
         checkAchievements(context, linesWritten);
+        checkExtensionAchievements(context);
     });
 
     /*const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;

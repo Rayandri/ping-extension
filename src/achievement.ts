@@ -7,6 +7,7 @@ import * as vscode from 'vscode';
 
 let achievements = 
 [
+    /*LINES */
     { name: "First Line!", lines: 1, achieved: false, icon: "🌟", xp : 10},
     { name: "10 Lines", lines: 10, achieved: false, icon: "🌟", xp : 20},
     { name: "Écrivain en herbe", lines: 100, achieved: false, icon: "🌟", xp : 40},
@@ -14,17 +15,27 @@ let achievements =
     { name: "Maître codeur", lines: 10000, achieved: false, icon: "🏆", xp : 100},
     { name: "Empreureur du code", lines: 1000000, achieved: false, icon: "🏆", xp : 1000},
     { name: "Dieu du Dev", lines: 10000000, achieved: false, icon: "🎉", xp : 10000},
+
+    /*GIT*/
     { name: "First Commit", action: "commit", achieved: false, xp: 20 },
     { name: "First Pull", action: "pull", achieved: false, xp: 20 },
     { name: "First Push", action: "push", achieved: false, xp: 20 },
     { name: "First Tag", action: "tag", achieved: false, xp: 20 },
+
+
+    /*TIMES*/
     { name: "1 minute spent", time:  60 * 1000, achieved: false, xp: 10 },  
     { name: "10 minutes spent", time: 10 * 60 * 1000, achieved: false, xp: 10 },  
     { name: "1 hour spent", time: 60 * 60 * 1000, achieved: false, xp: 50 },     
     { name: "5 hours spent", time: 5 * 60 * 60 * 1000, achieved: false, xp: 100 },  
     { name: "10 hours", time: 10 * 60 * 60 * 1000, achieved: false, xp: 10 },  
-    { name: "100 hour spent", time: 100 * 60 * 60 * 1000, achieved: false, xp: 50 },     
-    { name: "1000 hours spent", time: 1000 * 60 * 60 * 1000, achieved: false, xp: 100 }  
+    { name: "100 hour spent", time: 100 * 60 * 60 * 1000, achieved: false, xp: 50 },  
+    { name: "1000 hours spent", time: 1000 * 60 * 60 * 1000, achieved: false, xp: 100 },
+
+    /*Extensions*/
+    { name: "5 Extensions Installed", extensions: 5, achieved: false, icon: "🔌", xp: 10 },
+    { name: "10 Extensions Installed", extensions: 10, achieved: false, icon: "🔌", xp: 20 },
+    { name: "20 Extensions Installed", extensions: 20, achieved: false, icon: "🔌", xp: 40 }
 ];
 
 
@@ -56,6 +67,24 @@ function checkTimeAchievements(context: vscode.ExtensionContext, totalTimeSpent:
 }
 /* TIME*/
 
+
+
+
+
+/*Extension*/
+
+export function checkExtensionAchievements(context: vscode.ExtensionContext) 
+{
+    const installedExtensions = vscode.extensions.all.filter(ext => !ext.packageJSON.isBuiltin).length;
+    for (let achievement of achievements) 
+    {
+        if (achievement.extensions !== undefined && !achievement.achieved && installedExtensions >= achievement.extensions) 
+        {
+            unlockAchievement(achievement, context);
+        }
+    }
+}
+/*Extension*/
 
 
 let statusBarItem: vscode.StatusBarItem;
