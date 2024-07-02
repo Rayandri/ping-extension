@@ -1,0 +1,11 @@
+{
+    "name": "Marc",
+    "colors": {
+        "editor.background": "#000000",
+        "editor.foreground": "#000000",
+        "editorCursor.foreground": "#000000",
+        "editor.lineHighlightBackground": "#FFFFFF",
+        "editorLineNumber.foreground": "#808080",
+        "editorWhitespace.foreground": "#D3D3D3"
+    }
+}

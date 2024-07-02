@@ -18,9 +18,26 @@ let achievements =
 
     /*GIT*/
     { name: "First Commit", action: "commit", achieved: false, xp: 20 },
+    { name: "10 Commits", commits: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Commits", commits: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Commits", commits: 1000, achieved: false, icon: "🎉", xp: 500 },
+
     { name: "First Pull", action: "pull", achieved: false, xp: 20 },
+    { name: "10 Pulls", pulls: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Pulls", pulls: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Pulls", pulls: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+
     { name: "First Push", action: "push", achieved: false, xp: 20 },
+    { name: "10 Pushes", pushes: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Pushes", pushes: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Pushes", pushes: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+
     { name: "First Tag", action: "tag", achieved: false, xp: 20 },
+    { name: "10 Tags", tags: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Tags", tags: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Tags", tags: 1000, achieved: false, icon: "🎉", xp: 500 },
 
 
     /*TIMES*/
@@ -85,6 +102,101 @@ export function checkExtensionAchievements(context: vscode.ExtensionContext)
     }
 }
 /*Extension*/
+
+
+
+
+
+/*GIT COMMIT*/
+let totalCommits: number = 0;
+const commitsKey = 'totalCommits';
+
+export function checkCommitAchievements(context: vscode.ExtensionContext) {
+    for (let achievement of achievements) {
+        if (achievement.commits !== undefined && !achievement.achieved && totalCommits >= achievement.commits) {
+            unlockAchievement(achievement, context);
+        }
+    }
+}
+
+export function incrementCommitCount(context: vscode.ExtensionContext) {
+    totalCommits = context.globalState.get<number>(commitsKey) || 0;
+    totalCommits += 1;
+    context.globalState.update(commitsKey, totalCommits);
+    checkCommitAchievements(context);
+}
+/*GIT COMMIT*/
+
+
+
+/*GIT PULL*/
+let totalPull: number = 0;
+const PullKey = 'totalPull';
+
+export function checkPullAchievements(context: vscode.ExtensionContext) {
+    for (let achievement of achievements) {
+        if (achievement.pulls !== undefined && !achievement.achieved && totalPull >= achievement.pulls) {
+            unlockAchievement(achievement, context);
+        }
+    }
+}
+
+export function incrementPullCount(context: vscode.ExtensionContext) {
+    totalPull = context.globalState.get<number>(PullKey) || 0;
+    totalPull += 1;
+    context.globalState.update(PullKey, totalPull);
+    checkPullAchievements(context);
+}
+/*GIT PULL*/ 
+
+
+
+/*GIT PUSH*/
+let totalPush: number = 0;
+const PushKey = 'totalPush';
+
+export function checkPushAchievements(context: vscode.ExtensionContext) {
+    for (let achievement of achievements) {
+        if (achievement.pushes !== undefined && !achievement.achieved && totalPush >= achievement.pushes) {
+            unlockAchievement(achievement, context);
+        }
+    }
+}
+
+export function incrementPushCount(context: vscode.ExtensionContext) {
+    totalPush = context.globalState.get<number>(PushKey) || 0;
+    totalPush += 1;
+    context.globalState.update(PushKey, totalPush);
+    checkPushAchievements(context);
+}
+/*GIT PUSH*/
+
+
+
+/*GIT TAG*/
+let totalTag: number = 0;
+const TagKey = 'totalTag';
+
+export function checkTagAchievements(context: vscode.ExtensionContext) {
+    for (let achievement of achievements) {
+        if (achievement.tags !== undefined && !achievement.achieved && totalTag >= achievement.tags) {
+            unlockAchievement(achievement, context);
+        }
+    }
+}
+
+export function incrementTagCount(context: vscode.ExtensionContext) {
+    totalTag = context.globalState.get<number>(TagKey) || 0;
+    totalTag += 1;
+    context.globalState.update(TagKey, totalTag);
+    checkTagAchievements(context);
+}
+/*GIT TAG*/
+
+
+
+
+
 
 
 let statusBarItem: vscode.StatusBarItem;
@@ -237,7 +349,19 @@ export function showAchievements()
 export function resetAchievements(context: vscode.ExtensionContext) 
 {
     totalExperience = 0;
+    totalCommits = 0;
+    totalPull = 0;
+    totalPush = 0;
+    totalTag = 0;
+    totalTimeSpent = 0;
+
     context.globalState.update(experienceKey, totalExperience);
+    context.globalState.update(PullKey, totalPull);
+    context.globalState.update(commitsKey, totalCommits);
+    context.globalState.update(PushKey, totalPush);
+    context.globalState.update(TagKey, totalTag);
+    context.globalState.update(timeSpentKey, totalTimeSpent);
+
 
     for (let achievement of achievements) 
     {

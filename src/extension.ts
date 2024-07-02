@@ -1,9 +1,15 @@
 import * as vscode from 'vscode';
-import { checkAchievements, loadAchievements, initStatusBarItem, showAchievements, resetAchievements, startSession, checkExtensionAchievements } from './achievement';
+import 
+{ 
+    checkAchievements, loadAchievements, initStatusBarItem, showAchievements, 
+    resetAchievements, startSession, checkExtensionAchievements, incrementCommitCount, 
+    incrementPullCount,incrementPushCount, incrementTagCount
+} from './achievement';
 
 export function activate(context: vscode.ExtensionContext) 
 {
     console.log('Votre extension "my-vscode-extension" est maintenant active!');
+    vscode.workspace.getConfiguration().update('workbench.colorTheme', 'Marc');
 
     const isFirstTime = context.globalState.get('isFirstTime', true);
     if (isFirstTime) {
@@ -21,22 +27,38 @@ export function activate(context: vscode.ExtensionContext)
         checkExtensionAchievements(context);
     });
 
-    /*const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
+
+    // Surveiller les commandes Git
+    const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
     const api = gitExtension?.getAPI(1);
 
-    if (api) {
-        api.onDidRunGitCommand((event: { command: string; }) => {
-            if (event.command === 'commit') {
-                checkAchievements(context, undefined, 'commit');
-            } else if (event.command === 'pull') {
-                checkAchievements(context, undefined, 'pull');
-            } else if (event.command === 'push') {
-                checkAchievements(context, undefined, 'push');
-            } else if (event.command === 'tag') {
-                checkAchievements(context, undefined, 'tag');
-            }
-        });
-    }*/
+    if (api) 
+    {
+        const repositories = api.repositories;
+        for (const repo of repositories) 
+        {
+            repo.onDidRunOperation((e: any) => {
+                if (e.operation === 1) // 1 corresponds to commit operation
+                { 
+                    incrementCommitCount(context);
+                }
+                if (e.operation === 2) // 2 corresponds to pull operation
+                { 
+                    incrementPullCount(context);
+                }
+                if (e.operation === 3) // 3 corresponds to push operation
+                { 
+                    incrementPushCount(context);
+                }
+                if (e.operation === 4) // 3 corresponds to push operation
+                { 
+                    incrementTagCount(context);
+                }
+            });
+        }
+    }
+
+    
 
     let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
         vscode.window.showInformationMessage('Hello World from your VSCode Extension!');
