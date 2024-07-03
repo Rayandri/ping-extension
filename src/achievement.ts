@@ -1,10 +1,12 @@
 import * as vscode from "vscode";
 
-
 let encouragement = [
   { text: "Amazing progress! Keep coding and shine! 💻✨", icon: "🌟" },
   { text: "You're unstoppable! Let's crush more code! 💻🔥", icon: "💪" },
-  { text: "Every line of code brings you closer to greatness! 💻🏆", icon: "🎯" },
+  {
+    text: "Every line of code brings you closer to greatness! 💻🏆",
+    icon: "🎯",
+  },
   { text: "Coding like a champ! Keep the momentum going! 💻🏅", icon: "🚀" },
   { text: "Innovate, create, and keep coding! 💻💡", icon: "⚡" },
   { text: "Your code is poetry in motion! 💻📜", icon: "🖋️" },
@@ -15,78 +17,238 @@ let encouragement = [
   { text: "Your creativity is your superpower! Keep coding! 💻🦸‍♀️", icon: "🦸" },
   { text: "Every bug fixed is a step forward! Keep at it! 💻🐞", icon: "🔧" },
   { text: "You're making magic with your code! 💻🪄", icon: "✨" },
-  { text: "Code like a rockstar! Keep hitting those high notes! 💻🎸", icon: "🎤" },
-  { text: "Your dedication is inspiring! Keep coding strong! 💻💪", icon: "🏋️" },
+  {
+    text: "Code like a rockstar! Keep hitting those high notes! 💻🎸",
+    icon: "🎤",
+  },
+  {
+    text: "Your dedication is inspiring! Keep coding strong! 💻💪",
+    icon: "🏋️",
+  },
 
-  { text: "The only way to do great work is to love what you do. - Steve Jobs 💻❤️", icon: "❤️" },
-  { text: "The only way to get started is to quit talking and begin doing. - Walt Disney 💻🏁", icon: "🏁" },
-  { text: "Continuous improvement is better than delayed perfection. - Mark Twain 💻🔄", icon: "🔄" },
-  { text: "If you are sad, continue coding. It will get better! 💻😊", icon: "😊" },
-  { text: "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer 💻🔑", icon: "😊" },
-  { text: "Don't watch the clock; do what it does. Keep going. - Sam Levenson 💻⏰", icon: "⏳" },
-  { text: "Hard work beats talent when talent doesn't work hard. - Tim Notke 💻💪", icon: "💼" },
-  { text: "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt 💻🌟", icon: "🌠" },
-  { text: "It does not matter how slowly you go as long as you do not stop. - Confucius 💻🚶", icon: "🚶‍♂️" },
-  { text: "The best way to predict the future is to invent it. - Alan Kay 💻🔮", icon: "🧙‍♂️" },
+  {
+    text: "The only way to do great work is to love what you do. - Steve Jobs 💻❤️",
+    icon: "❤️",
+  },
+  {
+    text: "The only way to get started is to quit talking and begin doing. - Walt Disney 💻🏁",
+    icon: "🏁",
+  },
+  {
+    text: "Continuous improvement is better than delayed perfection. - Mark Twain 💻🔄",
+    icon: "🔄",
+  },
+  {
+    text: "If you are sad, continue coding. It will get better! 💻😊",
+    icon: "😊",
+  },
+  {
+    text: "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer 💻🔑",
+    icon: "😊",
+  },
+  {
+    text: "Don't watch the clock; do what it does. Keep going. - Sam Levenson 💻⏰",
+    icon: "⏳",
+  },
+  {
+    text: "Hard work beats talent when talent doesn't work hard. - Tim Notke 💻💪",
+    icon: "💼",
+  },
+  {
+    text: "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt 💻🌟",
+    icon: "🌠",
+  },
+  {
+    text: "It does not matter how slowly you go as long as you do not stop. - Confucius 💻🚶",
+    icon: "🚶‍♂️",
+  },
+  {
+    text: "The best way to predict the future is to invent it. - Alan Kay 💻🔮",
+    icon: "🧙‍♂️",
+  },
 
-  { text: "I ain't a businessman, I'm a business, man! - Jay-Z 💻💼", icon: "🏢" },
-  { text: "I got hustle though, ambition, flow, inside my DNA. - Kendrick Lamar 💻🧬", icon: "🧠" },
-  { text: "You can make something of your life, it just depends on your drive. - Eminem 💻🚗", icon: "🏎️" },
+  {
+    text: "I ain't a businessman, I'm a business, man! - Jay-Z 💻💼",
+    icon: "🏢",
+  },
+  {
+    text: "I got hustle though, ambition, flow, inside my DNA. - Kendrick Lamar 💻🧬",
+    icon: "🧠",
+  },
+  {
+    text: "You can make something of your life, it just depends on your drive. - Eminem 💻🚗",
+    icon: "🏎️",
+  },
   { text: "Turn every situation into a win. - DJ Khaled 💻🏆", icon: "🏅" },
-  { text: "Success is my only option, failure's not. - Eminem 💻🚫", icon: "🔒" },
+  {
+    text: "Success is my only option, failure's not. - Eminem 💻🚫",
+    icon: "🔒",
+  },
   { text: "Sky is the limit. - Notorious B.I.G. 💻🌌", icon: "🌠" },
-  { text: "I will not lose, for even in defeat, there's a valuable lesson learned, so it evens up for me. - Jay-Z 💻🎓", icon: "📚" },
-  { text: "Believe in your flyness, conquer your shyness. - Kanye West 💻🕊️", icon: "🦅" },
-  { text: "Stay far from timid, only make moves when your heart's in it. - Notorious B.I.G. 💻💖", icon: "💖" },
-  
+  {
+    text: "I will not lose, for even in defeat, there's a valuable lesson learned, so it evens up for me. - Jay-Z 💻🎓",
+    icon: "📚",
+  },
+  {
+    text: "Believe in your flyness, conquer your shyness. - Kanye West 💻🕊️",
+    icon: "🦅",
+  },
+  {
+    text: "Stay far from timid, only make moves when your heart's in it. - Notorious B.I.G. 💻💖",
+    icon: "💖",
+  },
+
   { text: "Jordan t'es moooooooooort - Cedric Doumbe", icon: "🥊" },
 
-  { text: "Success is not about how much money you make, it’s about the difference you make in people’s lives. - Michelle Obama 💻", icon: "💡" },
-  { text: "Your life is your story, and the adventure ahead of you is the journey to fulfill your own purpose and potential. - Kerry Washington 💻", icon: "🌍" },
-  { text: "Don’t be afraid to fail. Be afraid not to try. - Michael Jordan 💻", icon: "🏀" },
-  { text: "The biggest adventure you can take is to live the life of your dreams. - Oprah Winfrey 💻", icon: "🌟" },
-  { text: "I’m not a businessman, I’m a business, man. - Jay-Z 💻", icon: "💼" },
-  { text: "The only way to achieve the impossible is to believe it is possible. - Charles Kingsleigh 💻", icon: "🚀" },
-  { text: "Work hard in silence, let your success be your noise. - Frank Ocean 💻", icon: "🔊" },
-  { text: "Doubt kills more dreams than failure ever will. - Suzy Kassem 💻", icon: "❌" },
-  { text: "Be yourself; everyone else is already taken. - Oscar Wilde 💻", icon: "👤" },
-  { text: "You are never too old to set another goal or to dream a new dream. - C.S. Lewis 💻", icon: "🕰️" },
-  { text: "The question isn’t who is going to let me; it’s who is going to stop me. - Ayn Rand 💻", icon: "🛑" },
-  { text: "Your limitation—it’s only your imagination. - Tony Robbins 💻", icon: "💭" },
-  { text: "Push yourself, because no one else is going to do it for you. - Rhymefest 💻", icon: "🏋️‍♂️" },
-  { text: "Great things never come from comfort zones. - Neil Strauss 💻", icon: "🏔️" },
+  {
+    text: "Success is not about how much money you make, it’s about the difference you make in people’s lives. - Michelle Obama 💻",
+    icon: "💡",
+  },
+  {
+    text: "Your life is your story, and the adventure ahead of you is the journey to fulfill your own purpose and potential. - Kerry Washington 💻",
+    icon: "🌍",
+  },
+  {
+    text: "Don’t be afraid to fail. Be afraid not to try. - Michael Jordan 💻",
+    icon: "🏀",
+  },
+  {
+    text: "The biggest adventure you can take is to live the life of your dreams. - Oprah Winfrey 💻",
+    icon: "🌟",
+  },
+  {
+    text: "I’m not a businessman, I’m a business, man. - Jay-Z 💻",
+    icon: "💼",
+  },
+  {
+    text: "The only way to achieve the impossible is to believe it is possible. - Charles Kingsleigh 💻",
+    icon: "🚀",
+  },
+  {
+    text: "Work hard in silence, let your success be your noise. - Frank Ocean 💻",
+    icon: "🔊",
+  },
+  {
+    text: "Doubt kills more dreams than failure ever will. - Suzy Kassem 💻",
+    icon: "❌",
+  },
+  {
+    text: "Be yourself; everyone else is already taken. - Oscar Wilde 💻",
+    icon: "👤",
+  },
+  {
+    text: "You are never too old to set another goal or to dream a new dream. - C.S. Lewis 💻",
+    icon: "🕰️",
+  },
+  {
+    text: "The question isn’t who is going to let me; it’s who is going to stop me. - Ayn Rand 💻",
+    icon: "🛑",
+  },
+  {
+    text: "Your limitation—it’s only your imagination. - Tony Robbins 💻",
+    icon: "💭",
+  },
+  {
+    text: "Push yourself, because no one else is going to do it for you. - Rhymefest 💻",
+    icon: "🏋️‍♂️",
+  },
+  {
+    text: "Great things never come from comfort zones. - Neil Strauss 💻",
+    icon: "🏔️",
+  },
   { text: "Dream it. Wish it. Do it. - Jazzy Anne 💻", icon: "🌠" },
-  { text: "Success doesn’t just find you. You have to go out and get it. - Carlos Slim 💻", icon: "💪" },
-  { text: "The harder you work for something, the greater you’ll feel when you achieve it. - Alex Morgan 💻", icon: "🎯" },
+  {
+    text: "Success doesn’t just find you. You have to go out and get it. - Carlos Slim 💻",
+    icon: "💪",
+  },
+  {
+    text: "The harder you work for something, the greater you’ll feel when you achieve it. - Alex Morgan 💻",
+    icon: "🎯",
+  },
   { text: "Dream bigger. Do bigger. - Gary Vaynerchuk 💻", icon: "🌟" },
-  { text: "Don’t stop when you’re tired. Stop when you’re done. - Marshawn Lynch 💻", icon: "🏁" },
-  { text: "Wake up with determination. Go to bed with satisfaction. - Dwayne Johnson 💻", icon: "💤" },
-  { text: "Do something today that your future self will thank you for. - Sean Patrick Flanery 💻", icon: "🕰️" },
+  {
+    text: "Don’t stop when you’re tired. Stop when you’re done. - Marshawn Lynch 💻",
+    icon: "🏁",
+  },
+  {
+    text: "Wake up with determination. Go to bed with satisfaction. - Dwayne Johnson 💻",
+    icon: "💤",
+  },
+  {
+    text: "Do something today that your future self will thank you for. - Sean Patrick Flanery 💻",
+    icon: "🕰️",
+  },
   { text: "Little things make big days. - Paula Abdul 💻", icon: "🗓️" },
-  { text: "It’s going to be hard, but hard does not mean impossible. - Sadie Robertson 💻", icon: "🚀" },
-  { text: "Don’t wait for opportunity. Create it. - Tony Robbins 💻", icon: "🏗️" },
-  { text: "Sometimes later becomes never. Do it now. - Unknown 💻", icon: "⏳" },
+  {
+    text: "It’s going to be hard, but hard does not mean impossible. - Sadie Robertson 💻",
+    icon: "🚀",
+  },
+  {
+    text: "Don’t wait for opportunity. Create it. - Tony Robbins 💻",
+    icon: "🏗️",
+  },
+  {
+    text: "Sometimes later becomes never. Do it now. - Unknown 💻",
+    icon: "⏳",
+  },
 
   { text: "On n'est pas condamné à l'échec. - Soprano 💻", icon: "🚀" },
   { text: "Je rêve de mieux, je vise les cieux. - La Fouine 💻", icon: "🌠" },
-  { text: "Rien n'est impossible à qui rêve, ose, travaille et n'abandonne jamais. - MC Solaar 💻", icon: "💪" },
-  { text: "J'ai décidé d'être heureux parce que c'est bon pour la santé. - IAM 💻", icon: "😊" },
+  {
+    text: "Rien n'est impossible à qui rêve, ose, travaille et n'abandonne jamais. - MC Solaar 💻",
+    icon: "💪",
+  },
+  {
+    text: "J'ai décidé d'être heureux parce que c'est bon pour la santé. - IAM 💻",
+    icon: "😊",
+  },
   { text: "Le monde est à nous. - PNL 💻", icon: "🌍" },
-  { text: "Chaque jour est une chance de plus pour réussir. - Booba 💻", icon: "🏆" },
-  { text: "Croire en ses rêves, c'est déjà les réaliser. - Niska 💻", icon: "💭" },
+  {
+    text: "Chaque jour est une chance de plus pour réussir. - Booba 💻",
+    icon: "🏆",
+  },
+  {
+    text: "Croire en ses rêves, c'est déjà les réaliser. - Niska 💻",
+    icon: "💭",
+  },
 
-  { text: "Crois en toi et en tes rêves, ils peuvent devenir réalité. - Squeezie 💻", icon: "🌟" },
-  { text: "Chaque jour est une nouvelle opportunité de se surpasser. - Norman Thavaud 💻", icon: "🚀" },
-  { text: "Le travail acharné bat le talent quand le talent ne travaille pas. - Cyprien 💻", icon: "💪" },
-  { text: "L'important, c'est de ne jamais abandonner. - Natoo 💻", icon: "💖" },
-  { text: "Fais ce que tu aimes et tu ne travailleras jamais un seul jour de ta vie. - McFly & Carlito 💻", icon: "😊" },
-  { text: "Le succès, c'est d'aller d'échec en échec sans perdre son enthousiasme. - EnjoyPhoenix 💻", icon: "🌈" },
-  { text: "La passion est la clé de la réussite. - Tibo InShape 💻", icon: "🔥" },
-  { text: "Crois en toi, même quand personne d'autre ne le fait. - Mister V 💻", icon: "🌟" },
-  { text: "Chaque étape te rapproche de ton objectif. Continue d'avancer. - Amixem 💻", icon: "🚶‍♂️" },
-  { text: "Le succès, c'est de se lever une fois de plus qu'on est tombé. - HugoDécrypte 💻", icon: "🏋️" }
+  {
+    text: "Crois en toi et en tes rêves, ils peuvent devenir réalité. - Squeezie 💻",
+    icon: "🌟",
+  },
+  {
+    text: "Le travail acharné bat le talent quand le talent ne travaille pas. - Cyprien 💻",
+    icon: "💪",
+  },
+  {
+    text: "L'important, c'est de ne jamais abandonner. - Natoo 💻",
+    icon: "💖",
+  },
+  {
+    text: "Fais ce que tu aimes et tu ne travailleras jamais un seul jour de ta vie. - McFly & Carlito 💻",
+    icon: "😊",
+  },
+  {
+    text: "Le succès, c'est d'aller d'échec en échec sans perdre son enthousiasme. - EnjoyPhoenix 💻",
+    icon: "🌈",
+  },
+  {
+    text: "La passion est la clé de la réussite. - Tibo InShape 💻",
+    icon: "🔥",
+  },
+  {
+    text: "Crois en toi, même quand personne d'autre ne le fait. - Mister V 💻",
+    icon: "🌟",
+  },
+  {
+    text: "Chaque étape te rapproche de ton objectif. Continue d'avancer. - Amixem 💻",
+    icon: "🚶‍♂️",
+  },
+  {
+    text: "Le succès, c'est de se lever une fois de plus qu'on est tombé. - HugoDécrypte 💻",
+    icon: "🏋️",
+  },
 ];
-
 
 let achievements = [
   /*LINES */
@@ -182,6 +344,7 @@ let achievements = [
 
 /*TIME*/
 let sessionStartTime: number;
+let lastTime: number;
 let totalTimeSpent: number = 0;
 const timeSpentKey = "totalTimeSpent";
 
@@ -288,6 +451,51 @@ export function checkPushAchievements(context: vscode.ExtensionContext) {
   }
 }
 
+export function getWebviewContent(text: string, icon: string): string {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encouragement</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .container {
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        text-align: center;
+      }
+      h1 {
+        font-size: 4.5em;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>${icon} ${text}</h1>
+    </div>
+    <script>
+      setTimeout(() => {
+        const vscode = acquireVsCodeApi();
+        vscode.postMessage({ command: 'close' });
+      }, 10000);
+    </script>
+  </body>
+  </html>`;
+}
+
 export function incrementPushCount(context: vscode.ExtensionContext) {
   totalPush = context.globalState.get<number>(PushKey) || 0;
   totalPush += 1;
@@ -332,8 +540,34 @@ export function checkAchievements(
   action?: string
 ) {
   const sessionEndTime = Date.now();
+  if (lastTime === undefined) {
+    lastTime = sessionEndTime;
+  }
+
   const sessionDuration = sessionEndTime - sessionStartTime;
   totalTimeSpent = sessionDuration;
+
+  const timediff = sessionEndTime - lastTime;
+  if (timediff > 5 * 60 * 1000) {
+    lastTime = sessionEndTime;
+    const encouragementMessage =
+      encouragement[Math.floor(Math.random() * encouragement.length)];
+
+    const panel = vscode.window.createWebviewPanel(
+      "encouragementPopup",
+      "Encouragement",
+      vscode.ViewColumn.One,
+      { enableScripts: true }
+    );
+
+    panel.webview.html = getWebviewContent(
+      encouragementMessage.text,
+      encouragementMessage.icon
+    );
+
+    setTimeout(() => panel.dispose(), 10000);
+  }
+
   context.globalState.update(timeSpentKey, totalTimeSpent);
   checkTimeAchievements(context, totalTimeSpent);
 
