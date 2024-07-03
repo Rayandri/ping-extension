@@ -84,3 +84,5 @@ Vous pouvez rédiger votre README en utilisant Visual Studio Code. Voici quelque
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Profitez-en !**
+
+![alt text](images/icon.png)
