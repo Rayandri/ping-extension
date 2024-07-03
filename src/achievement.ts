@@ -1,5 +1,46 @@
 import * as vscode from "vscode";
 
+
+let encouragement = [
+  { text: "Amazing progress! Keep coding and shine! 💻", icon: "✨" },
+  { text: "You're unstoppable! Let's crush more code! 💻", icon: "🔥" },
+  { text: "Every line of code brings you closer to greatness! 💻", icon: "🏆" },
+  { text: "Coding like a champ! Keep the momentum going! 💻", icon: "🏅" },
+  { text: "Innovate, create, and keep coding! 💻", icon: "💡" },
+  { text: "Your code is poetry in motion! 💻", icon: "📜" },
+  { text: "Stay focused and keep coding! 💻", icon: "🎯" },
+  { text: "Keep those fingers coding! 💻", icon: "👨‍💻" },
+  { text: "You're building the future, one line at a time! 💻", icon: "🌍" },
+  { text: "Persistence is key! Keep coding and conquering! 💻", icon: "🔑" },
+  { text: "Your creativity is your superpower! Keep coding! 💻", icon: "🦸‍♀️" },
+  { text: "Every bug fixed is a step forward! Keep at it! 💻", icon: "🐞" },
+  { text: "You're making magic with your code! 💻", icon: "🪄" },
+  { text: "Code like a rockstar! Keep hitting those high notes! 💻", icon: "🎸" },
+  { text: "Your dedication is inspiring! Keep coding strong! 💻", icon: "💪" },
+
+  { text: "The only way to do great work is to love what you do. - Steve Jobs 💻", icon: "❤️" },
+  { text: "The only way to get started is to quit talking and begin doing. - Walt Disney 💻", icon: "🏁" },
+  { text: "Continuous improvement is better than delayed perfection. - Mark Twain 💻", icon: "🔄" },
+  { text: "If you are sad, continue coding. It will get better! 💻", icon: "😊" },
+  { text: "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer 💻", icon: "🔑" },
+  { text: "Don't watch the clock; do what it does. Keep going. - Sam Levenson 💻", icon: "⏰" },
+  { text: "Hard work beats talent when talent doesn't work hard. - Tim Notke 💻", icon: "💪" },
+  { text: "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt 💻", icon: "🌟" },
+  { text: "It does not matter how slowly you go as long as you do not stop. - Confucius 💻", icon: "🚶" },
+  { text: "The best way to predict the future is to invent it. - Alan Kay 💻", icon: "🔮" },
+  
+  { text: "I ain't a businessman, I'm a business, man! - Jay-Z 💻", icon: "💼" },
+  { text: "I got hustle though, ambition, flow, inside my DNA. - Kendrick Lamar 💻", icon: "🧬" },
+  { text: "You can make something of your life, it just depends on your drive. - Eminem 💻", icon: "🚗" },
+  { text: "Turn every situation into a win. - DJ Khaled 💻", icon: "🏆" },
+  { text: "Success is my only option, failure's not. - Eminem 💻", icon: "🚫" },
+  { text: "Sky is the limit. - Notorious B.I.G. 💻", icon: "🌌" },
+  { text: "I will not lose, for even in defeat, there's a valuable lesson learned, so it evens up for me. - Jay-Z 💻", icon: "🎓" },
+  { text: "Believe in your flyness, conquer your shyness. - Kanye West 💻", icon: "🕊️" },
+  { text: "Stay far from timid, only make moves when your heart's in it. - Notorious B.I.G. 💻", icon: "💖" }
+];
+
+
 let achievements = [
   /*LINES */
   { name: "First Line!", lines: 1, achieved: false, icon: "🌟", xp: 10 },
