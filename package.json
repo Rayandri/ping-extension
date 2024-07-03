@@ -3,6 +3,9 @@
   "icon": "icon.png",
   "displayName": "Ping-GameFi",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rayandri/ping-extension"},
   "version": "0.0.2",
   "engines": {
     "vscode": "^1.90.0"
