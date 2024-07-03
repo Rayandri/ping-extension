@@ -55,6 +55,7 @@ let achievements = [
   { name: "100 Tags", tags: 100, achieved: false, icon: "🏆", xp: 100 },
   { name: "1000 Tags", tags: 1000, achieved: false, icon: "🎉", xp: 500 },
 
+<<<<<<< HEAD
   /*TIMES*/
   { name: "5 secondes spent", time: 5 * 1000, achieved: false, xp: 1 },
   { name: "1 minute spent", time: 60 * 1000, achieved: false, xp: 10 },
@@ -97,6 +98,57 @@ let achievements = [
     icon: "🔌",
     xp: 40,
   },
+=======
+let achievements = 
+[
+    /*LINES */
+    { name: "First Line!", lines: 1, achieved: false, icon: "🌟", xp : 10},
+    { name: "10 Lines", lines: 10, achieved: false, icon: "🌟", xp : 20},
+    { name: "Budding writer", lines: 100, achieved: false, icon: "🌟", xp : 40},
+    { name: "Prolific author", lines: 1000, achieved: false, icon: "🏆", xp : 50},
+    { name: "Master coder", lines: 10000, achieved: false, icon: "🏆", xp : 100},
+    { name: "Emperor of code", lines: 1000000, achieved: false, icon: "🏆", xp : 1000},
+    { name: "Development god", lines: 10000000, achieved: false, icon: "🎉", xp : 10000},
+
+    /*GIT*/
+    { name: "First Commit", action: "commit", achieved: false, xp: 20 },
+    { name: "10 Commits", commits: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Commits", commits: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Commits", commits: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+    { name: "First Pull", action: "pull", achieved: false, xp: 20 },
+    { name: "10 Pulls", pulls: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Pulls", pulls: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Pulls", pulls: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+
+    { name: "First Push", action: "push", achieved: false, xp: 20 },
+    { name: "10 Pushes", pushes: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Pushes", pushes: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Pushes", pushes: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+
+    { name: "First Tag", action: "tag", achieved: false, xp: 20 },
+    { name: "10 Tags", tags: 10, achieved: false, icon: "🌟", xp: 50 },
+    { name: "100 Tags", tags: 100, achieved: false, icon: "🏆", xp: 100 },
+    { name: "1000 Tags", tags: 1000, achieved: false, icon: "🎉", xp: 500 },
+
+
+    /*TIMES*/
+    { name: "5 secondes spent", time:  5 * 1000, achieved: false, xp: 1 }, 
+    { name: "1 minute spent", time:  60 * 1000, achieved: false, xp: 10 },  
+    { name: "10 minutes spent", time: 10 * 60 * 1000, achieved: false, xp: 10 },  
+    { name: "1 hour spent", time: 60 * 60 * 1000, achieved: false, xp: 50 },     
+    { name: "5 hours spent", time: 5 * 60 * 60 * 1000, achieved: false, xp: 100 },  
+    { name: "10 hours spent", time: 10 * 60 * 60 * 1000, achieved: false, xp: 10 },  
+    { name: "100 hours spent", time: 100 * 60 * 60 * 1000, achieved: false, xp: 50 },  
+    { name: "1000 hours spent", time: 1000 * 60 * 60 * 1000, achieved: false, xp: 100 },
+
+    /*Extensions*/
+    { name: "5 Extensions Installed", extensions: 5, achieved: false, icon: "🔌", xp: 10 },
+    { name: "10 Extensions Installed", extensions: 10, achieved: false, icon: "🔌", xp: 20 },
+    { name: "20 Extensions Installed", extensions: 20, achieved: false, icon: "🔌", xp: 40 }
+>>>>>>> 1f460c4 (feat: in english)
 ];
 
 /*TIME*/
