@@ -338,7 +338,6 @@ function updateStatusBar()
 export function showAchievements() 
 {
     let achievedList = achievements.map(ach => `${ach.achieved ? '✅' : '❌'} ${ach.name} (XP: ${ach.xp})`).join('\n');
-    // on trie par validé 
     achievedList = achievedList.split('\n').sort().join('\n');
     vscode.window.showInformationMessage(achievedList, { modal: true });
 }
