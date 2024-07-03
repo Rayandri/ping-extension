@@ -27,8 +27,6 @@ export function activate(context: vscode.ExtensionContext)
         checkExtensionAchievements(context);
     });
 
-
-    // Surveiller les commandes Git
     const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
     const api = gitExtension?.getAPI(1);
 
@@ -72,7 +70,6 @@ export function activate(context: vscode.ExtensionContext)
         resetAchievements(context);
     });
 
-    // Add a button to the activity bar
     const resetButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
     resetButton.text = '$(trash) Reset Achievements';
     resetButton.command = 'extension.resetAchievements';

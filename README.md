@@ -3,6 +3,18 @@
 
 Bienvenue dans l'extension "ping-gamefi" ! Cette extension gamifie votre expérience de développement en vous offrant des achievements pour diverses actions de codage.
 
+## Documentation
+
+L'extension "Ping GameFi" est une extension de jeu qui vous offre des achievements pour diverses actions de codage. Vous pouvez débloquer des achievements pour des actions telles que l'exécution de scripts Python, la création de fonctions, le respect des conventions PEP8, etc.
+Elle tourne en arrière plan et vous notifie lorsque vous débloquez un achievement et que vous gagnez de l'XP.
+ ![alt text](images/Notifs.png)
+
+Vous pouvez consulter la liste des achievements débloqués et votre progression dans l'extension en appuyant sur le bouton achievements dans la barre en bas de l'écran.
+ ![alt text](images/Achievments.png)
+
+ Et vous pouvez consulter votre progression qui s'affiche sur le bouton XP dans la barre en bas de l'écran.
+ ![alt text](images/Buttons.png)
+
 ## Features
 
 - **Première utilisation de l'extension** : Débloquez votre premier achievement dès que vous commencez à utiliser l'extension.
