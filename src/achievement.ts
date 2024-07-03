@@ -41,6 +41,7 @@ let achievements =
 
 
     /*TIMES*/
+    { name: "5 secondes spent", time:  5 * 1000, achieved: false, xp: 1 }, 
     { name: "1 minute spent", time:  60 * 1000, achieved: false, xp: 10 },  
     { name: "10 minutes spent", time: 10 * 60 * 1000, achieved: false, xp: 10 },  
     { name: "1 hour spent", time: 60 * 60 * 1000, achieved: false, xp: 50 },     
@@ -215,7 +216,7 @@ export function checkAchievements(context: vscode.ExtensionContext, linesWritten
 {
     const sessionEndTime = Date.now();
     const sessionDuration = sessionEndTime - sessionStartTime;
-    totalTimeSpent += sessionDuration;
+    totalTimeSpent = sessionDuration;
     context.globalState.update(timeSpentKey, totalTimeSpent);
     checkTimeAchievements(context, totalTimeSpent);
 
