@@ -33,31 +33,33 @@ export function activate(context: vscode.ExtensionContext) {
     checkExtensionAchievements(context);
   });
 
-  const gitExtension = vscode.extensions.getExtension("vscode.git")?.exports;
-  const api = gitExtension?.getAPI(1);
-
-  if (api) {
-    const repositories = api.repositories;
-    for (const repo of repositories) {
-      repo.onDidRunOperation((e: any) => {
-        if (e.operation === 1) {
-          // 1 corresponds to commit operation
-          incrementCommitCount(context);
-        }
-        if (e.operation === 2) {
-          // 2 corresponds to pull operation
-          incrementPullCount(context);
-        }
-        if (e.operation === 3) {
-          // 3 corresponds to push operation
-          incrementPushCount(context);
-        }
-        if (e.operation === 4) {
-          // 3 corresponds to push operation
-          incrementTagCount(context);
-        }
-      });
-    }
+  const gitExtension = vscode.extensions.getExtension("vscode.git");
+  if (gitExtension) {
+    gitExtension.activate().then(() => {
+      const api = gitExtension.exports.getAPI(1);
+      if (api) {
+        api.onDidChangeState(() => {
+          const repositories = api.repositories;
+          for (const repo of repositories) {
+            repo.state.onDidChange(() => {
+              const operations = repo.state.operations;
+              if (operations.includes("Commit")) {
+                incrementCommitCount(context);
+              }
+              if (operations.includes("Pull")) {
+                incrementPullCount(context);
+              }
+              if (operations.includes("Push")) {
+                incrementPushCount(context);
+              }
+              if (operations.includes("Tag")) {
+                incrementTagCount(context);
+              }
+            });
+          }
+        });
+      }
+    });
   }
 
   let disposable = vscode.commands.registerCommand(
