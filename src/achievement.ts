@@ -273,7 +273,7 @@ let achievements = [
   },
 
   /*GIT*/
-  { name: "First Commit", action: "commit", achieved: false, xp: 20 },
+  { name: "First Commit", commits: 1, achieved: false, xp: 20 },
   { name: "10 Commits", commits: 10, achieved: false, icon: "🌟", xp: 50 },
   { name: "100 Commits", commits: 100, achieved: false, icon: "🏆", xp: 100 },
   { name: "1000 Commits", commits: 1000, achieved: false, icon: "🎉", xp: 500 },
